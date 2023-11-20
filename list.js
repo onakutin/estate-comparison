@@ -24,9 +24,13 @@ const loadEstates = async (url) => {
 		const handleClick = () => {
 			// if nothing chosen, choose this as the first estate 'A' and display the details
 			if (leftEstateId == null) {
-				showEstateLeft(estate.id);
 				highlightFirstEstate(estate.id);
 				leftEstateId = estate.id;
+				if (rightEstateId === null) {
+					showEstateLeft(estate.id);
+				} else {
+					compareEstates(leftEstateId, rightEstateId);
+				}
 			} else {
 				// if clicked on the estate 'A', unchoose it and clear the leftEstateId
 				if (estate.id === leftEstateId) {
