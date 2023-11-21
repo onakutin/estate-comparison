@@ -8,7 +8,6 @@ const compareEstates = async (leftId, rightId) => {
 	);
 	const dataLeft = await responseLeft.json();
 	const estateLeft = new Estate(dataLeft);
-	console.log(estateLeft);
 
 	let priceLeft = estateLeft.price;
 	let floorAreaLeft = Number(estateLeft.building_area);
@@ -20,7 +19,6 @@ const compareEstates = async (leftId, rightId) => {
 	);
 	const dataRight = await responseRight.json();
 	const estateRight = new Estate(dataRight);
-	console.log(estateRight);
 
 	let priceRight = estateRight.price;
 	let floorAreaRight = Number(estateRight.building_area);
@@ -28,12 +26,9 @@ const compareEstates = async (leftId, rightId) => {
 
 	// the logic of deciding the background color for the values comparison
 	const compareProperty = (left, right) => {
-		console.log(left, right);
 		if (left > right) {
-			console.log("right");
 			return "right";
 		} else if (right > left) {
-			console.log("left");
 			return "left";
 		} else {
 			return "both";
